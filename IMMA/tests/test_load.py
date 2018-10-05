@@ -18,6 +18,14 @@ class TestLoad(unittest.TestCase):
              "%s/sample_files/basic.imma" % thisdir)
         self.assertEqual(loaded,target)
 
+    def test_load_gzip(self):
+        target=pickle.load(open(
+             "%s/pickled_samples/basic.pkl" % thisdir,
+                            "rb" ) )
+        loaded=IMMA.read(
+             "%s/sample_files/basic.imma.gz" % thisdir)
+        self.assertEqual(loaded,target)        
+
     # Variable sets of attachments
     def test_load_mixed(self):
         target=pickle.load(open(

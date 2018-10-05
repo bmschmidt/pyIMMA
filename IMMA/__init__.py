@@ -54,10 +54,9 @@ The list of extensions to write to the file is controlled by ``ob['extensions']`
 |
 """
 
-
-from structure import attachment
-from structure import parameters
-from structure import definitions
-from read import *
-from write import *
+from .structure import attachment
+from .structure import parameters
+from .structure import definitions
+from .read import *
+from .write import *
 
