@@ -1,6 +1,6 @@
 # Read in IMMA records from files.
 
-import re     #  Regular Expressions
+#import re     #  Regular Expressions
 from .structure import attachment
 from .structure import parameters
 from .structure import definitions

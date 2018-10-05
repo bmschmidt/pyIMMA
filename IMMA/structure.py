@@ -730,3 +730,12 @@ definitions['99'] = {
     'SUPD' : ( None,  None,  None,  None,  None,  None,  3 )
 	}
 
+
+# Doubling up values in the dict to allow int lookups.
+
+for k in list(parameters.keys()):
+    parameters[int(k)] = parameters[k]
+for k in list(attachment.keys()):
+    attachment[int(k)] = attachment[k]
+for k in list(definitions.keys()):
+    definitions[int(k)] = definitions[k]
