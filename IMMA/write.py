@@ -1,9 +1,14 @@
 # Read in IMMA records from files.
 
 import re     #  Regular Expressions
-from structure import attachment
-from structure import parameters
-from structure import definitions
+from .structure import attachment
+from .structure import parameters
+from .structure import definitions
+import gzip
+
+import sys
+
+py3 = sys.version[0] == '3'
 
 # Write out a record to a file
 def write(record,fh):           # fh is a filehandle
@@ -18,10 +23,17 @@ def write(record,fh):           # fh is a filehandle
     """
 
     Result = ""
+    
     for attachment_n in record['attachments']:
         Result += _encode(record,attachment_n)
-    fh.write( Result+"\n" )
-
+    
+    Result += "\n"
+    
+    if py3:
+        Result = bytes(Result, 'utf-8')
+        
+    fh.write( Result )
+        
 # Make a string representation of an attachment
 def _encode (attachment,
              attachment_n):    # Attachment number

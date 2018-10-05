@@ -1,9 +1,10 @@
 # Read in IMMA records from files.
 
 import re     #  Regular Expressions
-from structure import attachment
-from structure import parameters
-from structure import definitions
+from .structure import attachment
+from .structure import parameters
+from .structure import definitions
+import gzip
 
 # Convert a single-digit base36 value to base 10
 def _decode_base36(t): 
@@ -58,11 +59,17 @@ class get:
     """
 
     def __init__(self, filename):
-        self.fh=open(filename,'r')
+        if filename.endswith('.gz'):
+            self.fh=gzip.open(filename)
+        else:
+            self.fh=open(filename,'r')
 
     def __iter__(self):
         return self
 
+    def __next__(self):
+        return self.next()
+    
     def next(self): # Python 3: def __next__(self)
         line = self.fh.readline();
         if(line == ""): raise StopIteration
