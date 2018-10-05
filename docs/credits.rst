@@ -9,4 +9,6 @@ All blame should go to the maintainer; credit is more widely distributed - all t
 
 * This package was written by Philip Brohan (`Met Office <https://www.metoffice.gov.uk/research>`_). He was funded by the Joint DECC and Defra Integrated Climate Programme, DECC/Defra (GA01101).
 * The IMMA data format is used and managed by the `International Comprehensive Ocean-Atmosphere DataSet (ICOADS) <http://icoads.noaa.gov/>`_.
+* `Ben Schmidt <http://benschmidt.org/>`_ sent an optimisation that made reads a lot faster.
+
 
